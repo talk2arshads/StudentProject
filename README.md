@@ -10,6 +10,28 @@ http://localhost:8080/allStudents
 http://localhost:8080/Welcome.html
 
 
+Oracle SQL queries;
+	select * from UITAX.ui_defaults where seq_code = 'DOCUMENT_NAME' and seq_short_desc = '55-0307';
+	select ENTITY_NA from UITAX.UI_Employer where STATUS_CD between 2710 and 2712;
+	select count(*) from UITAX.UI_Employer order by create_dt desc;
+	select ENTITY_NA, count(*) from UITAX.UI_Employer group by ENTITY_NA having count(*) > 1 order by ENTITY_NA asc;
+	select  * from (select status_cd,ENTITY_NA, empr_acct_id from UITAX.UI_Employer order by empr_acct_id desc) where rownum < 5;
+	select max(empr_acct_id) from UITAX.UI_Employer;
+	
+	SELECT bc.firstname,
+       bc.lastname,
+       b.title,
+       TO_CHAR(bo.orderdate, 'MM/DD/YYYY') "Order Date",
+       p.publishername
+FROM BOOK_CUSTOMER bc
+INNER JOIN books b
+  ON b.BOOK_ID = bc.BOOK_ID
+INNER JOIN  book_order bo
+  ON bo.BOOK_ID = b.BOOK_ID
+INNER JOIN publisher p
+  ON p.PUBLISHER_ID = b.PUBLISHER_ID
+WHERE p.publishername = 'PRINTING IS US';
+
 ## Complete Code Example
 
 
