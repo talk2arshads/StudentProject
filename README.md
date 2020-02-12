@@ -39,6 +39,8 @@ INNER JOIN publisher p
   ON p.PUBLISHER_ID = b.PUBLISHER_ID
 WHERE p.publishername = 'PRINTING IS US';
 
+UPDATE uitax.ui_cm_metadata set doc_generated_ind='Y', doc_generated_dt = sysdate, mdfctn_dt=sysdate WHERE empr_acct_id='00575314' and doc_seq_id='0083494548';
+
 ## Complete Code Example
 
 
